@@ -1,28 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap');
+
 .container{
   background-color:  rgba(255, 255, 255, 1);
-  width: 35.7421875vw;
-  height: 81.64vh;
+  width: 25vw;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
 }
 .head{
   display: flex;
   justify-content: space-around;
 }
-.button{
-  border: 1px solid yellow;
-  display: flex;
-  flex-direction: column;
-  /* width: 2.375rem; */
-  font-size: 16px;
-  align-items: center;
-  justify-content: stretch;
+
+.plan{
+  font-weight: 600;
+  color: #3C4852;
+  line-height: 1vh;
 }
 
+.button{
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  line-height: 3vh;
+  align-items: center;
+  justify-content: stretch;
+  width: 10vw;
+  font-weight: 400;
+}
 
+.inputBorder{
+  width: 24vw;
+  height: 6vh;
+  border-radius: 10px;
+  border: 1px solid #BEBEBE;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+ 
+   justify-content:space-between;
 
-.offerExpire{
-  background-color: rgb(195, 192, 192);
+}
+
+.inputBorder label{
+  display: flex;
+  justify-content: space-between;
+  padding: 1.1rem;
+  font-size: 0.7rem;
+  color: #3C4852;
+  font-weight: 600;
+}
+.labelDiv{
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalRupees{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+}
+
+.month{
+  font-size: 0.5rem;
+}
+
+.mo{
+color: #BEBEBE;
+}
+
+.total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem ;
+  width: 20vw;
+  font-size: 0.8rem;
+  line-height:0vh
+}
+
+.expire{
+  background-color: #E7E7E7;
+  width: 24vw;
+  height: 6vh;
+  margin: center;
+  border-radius: 10px;
+  border: 1px solid #BEBEBE;
+  display: flex;
+  align-items: center;
+  color:#BEBEBE;
+}
+
+.expire label{
+  display: flex;
+  padding: 1.1rem;
+  font-size: 0.7rem;
+  color: #3C4852;
+  font-weight: 600;
+  
+}
+
+.subscription_Container{
+  display:flex;
+  justify-content: space-between;
+  padding:0vh 2vw;
+  width:24vw;
+padding: 0rem 1.2rem;
+  font-size: 0.7rem;
+  color: #3C4852;
+  font-weight: 600;
+  margin-top: 2vh;
+}
+
+.subscription_Container p{
+  line-height:0vw
+}
+.subscription{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fee{
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn{
+  display:flex;
+  gap:0.4vw;
+  font-weight:700;
+}
+
+.cancel{
+  border : 1px solid rgba(247, 113, 113, 1);
+  color:rgba(247, 113, 113, 1);
+  padding: 0.64rem 2rem;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius:4px;
+  width:12vw;
+  font-size: 0.7rem;
+}
+
+.pay{
+  border : 1px solid #47BA68;
+  border-radius:4px;
+  background-color: #47BA68;
+  padding: 0.625rem 2rem;
+  color: white;
+  width:12vw;
+  font-size: 0.7rem;
+}
+
+.recommend{
+  background-color: #D7EDDD;
+  width: 24vw;
+  height: 6vh;
+  margin: center;
+  border-radius: 10px;
+  border: 2px solid #47BA68;
+  display: flex;
+  align-items: center;
+}
+
+.recommend label{
+  display: flex;
+  padding: 1.1rem;
+  font-size: 0.7rem;
+  color: #3C4852;
+  font-weight: 600;
+ 
+}
+
+.foot{
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 1.2rem;
+  align-items: center;
+
+}
+
+.foot .price{
+  font-size: 1rem;
+}
+
+.razorFlag{
+
+}
+
+.razorContainer{
+  /* border: 1px solid; */
+  width: 24vw;
+}
+
+.razorContainer img{
+  width : 100px;
 }

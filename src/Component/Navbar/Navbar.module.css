@@ -7,7 +7,7 @@
   background-color: white;
   justify-content: space-between;
   align-items: center;
-  height:10.227vh;
+  height:8vh;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -19,8 +19,6 @@
 }
 
 .logo{
-  /* position: absolute; */
-  /* width: 158px; */
   height: 45px;
   left: 0px;
   top: 0px;

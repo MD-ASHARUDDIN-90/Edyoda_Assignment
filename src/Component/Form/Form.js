@@ -1,79 +1,134 @@
-import React from 'react';
-import style from './Form.module.css';
-import Button1 from '../../assests/button1';
-import Button2 from '../../assests/button2';
+import React from "react";
+import style from "./Form.module.css";
+import button1 from "../../assests/button1.svg";
+import button2 from "../../assests/button2.svg";
+import subscription from "../../assests/subscription.svg";
+import razor from "../../assests/razor.svg";
+import { useState } from "react";
 
 export default function Form() {
-
   const price = [
     {
-      id : 1 ,
-      offerExpired : true,
-      name : "first",
-      text : "12 Months Subscription",
-      total_rs : 99,
-      perMonth_rs : 8
-
+      id: 1,
+      offerExpired: true,
+      recommend: false,
+      name: "first",
+      text: "12 Months Subscription",
+      total_rs: 99,
+      perMonth_rs: 8,
     },
     {
-      id : 2 ,
-      offerExpired : false,
-      name : "second",
-      text : "12 Months Subscription",
-      total_rs : 179,
-      perMonth_rs : 15
-
+      id: 2,
+      offerExpired: false,
+      recommend: true,
+      name: "second",
+      text: "12 Months Subscription",
+      total_rs: 179,
+      perMonth_rs: 15,
     },
     {
-      id : 1 ,
-      offerExpired : false,
-      name : "third",
-      text : "6 Months Subscription",
-      total_rs : 149,
-      perMonth_rs : 25
-
+      id: 3,
+      offerExpired: false,
+      recommend: false,
+      name: "third",
+      text: "6 Months Subscription",
+      total_rs: 149,
+      perMonth_rs: 25,
     },
     {
-      id : 1 ,
-      offerExpired : false,
-      name : "four",
-      text : "3 Months Subscription",
-      total_rs : 99,
-      perMonth_rs : 33
+      id: 4,
+      offerExpired: false,
+      recommend: false,
+      name: "four",
+      text: "3 Months Subscription",
+      total_rs: 99,
+      perMonth_rs: 33,
     },
-  ]
+  ];
 
+  const [list, setList] = useState(price);
+  const [value, setValue] = useState(149);
+  function handleChange(event, el) {
+    console.log(event.target.value - (event.target.value * 16.7) / 100);
+    setValue(
+      Math.floor(event.target.value - (event.target.value * 16.7) / 100)
+    );
+    list.forEach((x) => {
+      x.recommend = false;
+    });
+    el.recommend = true;
+    setList([...list]);
+  }
 
   return (
     <div className={style.container}>
       <div className={style.head}>
         <div className={style.button}>
-          <img src={Button1} alt="button1" />
+          <img src={button1} alt="button1" />
           <span>Sign Up</span>
         </div>
 
         <div className={style.button}>
-          <img src={Button2} alt="button2" />
+          <img src={button2} alt="button2" />
           <span>Subscribe</span>
         </div>
       </div>
-      <p>Select your subcription plan</p>
-      
-        {price.map((el,ind)=><div id={el.name} className={style.inputContainer} className={el.offerExpired ? style.offerExpire : ""}>
-          <input id={el.id} type="radio" value={el.total_rs} name="priceOption"/>
+      <p className={style.plan}>Select your subcription plan</p>
+
+      {list.map((el, ind) => (
+        <div
+          id={el.name}
+          className={
+            el.recommend
+              ? style.recommend
+              : el.offerExpired
+              ? style.expire
+              : style.inputBorder
+          }
+        >
+        <div>
           <label htmlFor={el.id}>
-            <span>
-            {el.text}
-            </span>
-            <span>
-            {el.total_rs}
-            </span>
-            <span>
-            {el.perMonth_rs}
-            </span>
-            </label>
-        </div>)}
-      
+            <div>
+              <input
+                checked={el.recommend}
+                disabled={el.offerExpired}
+                onChange={(event) => handleChange(event, el)}
+                id={el.id}
+                type="radio"
+                value={el.total_rs}
+                name="priceOption"
+              />
+              <span>{el.text}</span>
+            </div>
+            <div className={style.totalRupees}>
+              <span>Total ₹{el.total_rs}</span>
+              <span className={style.month}>
+                ₹{el.perMonth_rs}/<span className={style.mo}>mo</span>
+              </span>
+            </div>
+          </label>
+        </div>
+      ))}
+
+      <div className={style.subscription_Container}>
+        <p className={style.subscription}>Subscription Fee</p>
+        <p className={style.fee}>₹18,500</p>
+      </div>
+      <img src={subscription} alt="sub" />
+      <div className={style.total}>
+        <p>
+          <span style={{ fontWeight: "600" }}>Total </span>(Incl. of 18% GST)
+        </p>
+        <p style={{ fontWeight: "600", fontSize: "1.2rem" }}>₹{value}</p>
+      </div>
+
+      <div className={style.btn}>
+        <button className={style.cancel}>CANCEL</button>
+        <button className={style.pay}>PROCEED TO PAY</button>
+      </div>
+      <div className={style.razorContainer}>
+        <img src={razor} alt="razorPay" />
+      </div>
     </div>
   );
 }
