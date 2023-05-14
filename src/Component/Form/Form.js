@@ -86,7 +86,6 @@ export default function Form() {
               : style.inputBorder
           }
         >
-        <div>
           <label htmlFor={el.id}>
             <div>
               <input
